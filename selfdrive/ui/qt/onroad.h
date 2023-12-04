@@ -56,6 +56,9 @@ private:
 
   // FrogPilot variables
   bool y_offset;
+  int wheelIcon;
+
+  std::map<int, QPixmap> wheelImages;
 
   Params paramsMemory{"/dev/shm/params"};
   const UIScene &scene;
