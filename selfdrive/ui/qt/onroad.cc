@@ -471,6 +471,8 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   dm_img = loadPixmap("../assets/img_driver_face.png", {img_size + 5, img_size + 5});
 
   // FrogPilot buttons
+  personality_btn = new PersonalityButton(this);
+  main_layout->addWidget(personality_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
 
   initializeFrogPilotWidgets();
 }
@@ -1172,6 +1174,7 @@ void AnnotatedCameraWidget::updateFrogPilotWidgets(QPainter &p) {
   muteDM = scene.mute_dm;
   obstacleDistance = scene.obstacle_distance;
   obstacleDistanceStock = scene.obstacle_distance_stock;
+  onroadAdjustableProfiles = scene.personalities_via_screen;
   roadNameUI = scene.road_name_ui;
   showDriverCamera = scene.show_driver_camera;
   slcOverridden = scene.speed_limit_overridden;
@@ -1202,6 +1205,15 @@ void AnnotatedCameraWidget::updateFrogPilotWidgets(QPainter &p) {
       compass_img->updateState(bearingDeg);
     }
     bottom_layout->setAlignment(compass_img, (rightHandDM ? Qt::AlignLeft : Qt::AlignRight));
+  }
+
+  const bool enablePersonalityButton = compass && !hideBottomIcons && !scene.show_driver_camera;
+  personality_btn->setVisible(enablePersonalityButton);
+  if (enablePersonalityButton) {
+    if (paramsMemory.getBool("PersonalityChangedViaWheel")) {
+      personality_btn->checkUpdate();
+    }
+    bottom_layout->setAlignment(personality_btn, (rightHandDM ? Qt::AlignRight : Qt::AlignLeft));
   }
 
   // Update the turn signal animation images upon toggle change
@@ -1439,6 +1451,79 @@ void AnnotatedCameraWidget::drawLeadInfo(QPainter &p) {
   drawText(followText, Qt::white);
 
   p.restore();
+}
+
+PersonalityButton::PersonalityButton(QWidget *parent) : QPushButton(parent), scene(uiState()->scene) {
+  setFixedSize(btn_size * 1.25, btn_size);
+
+  // Configure the profile vector
+  profile_data = {
+    {QPixmap("../../frogpilot/assets/other_images/aggressive.png"), "Aggressive"},
+    {QPixmap("../../frogpilot/assets/other_images/standard.png"), "Standard"},
+    {QPixmap("../../frogpilot/assets/other_images/relaxed.png"), "Relaxed"}
+  };
+
+  // Start the timer as soon as the button is created
+  transitionTimer.start();
+
+  // Initialize the click event
+  connect(this, &QPushButton::clicked, this, &PersonalityButton::handleClick);
+
+  personalityProfile = params.getInt("LongitudinalPersonality");
+  setVisible(scene.personalities_via_screen);
+}
+
+void PersonalityButton::checkUpdate() {
+  // Sync with the steering wheel button
+  personalityProfile = params.getInt("LongitudinalPersonality");
+  updateState();
+  paramsMemory.putBool("PersonalityChangedViaWheel", false);
+}
+
+void PersonalityButton::handleClick() {
+  static const int mapping[] = {2, 0, 1};
+  personalityProfile = mapping[personalityProfile];
+
+  params.putInt("LongitudinalPersonality", personalityProfile);
+  paramsMemory.putBool("PersonalityChangedViaUI", true);
+
+  updateState();
+}
+
+void PersonalityButton::updateState() {
+  // Start the transition
+  transitionTimer.restart();
+}
+
+void PersonalityButton::paintEvent(QPaintEvent *) {
+  // Declare the constants
+  constexpr qreal fadeDuration = 1000.0;  // 1 second
+  constexpr qreal textDuration = 3000.0;  // 3 seconds
+
+  QPainter p(this);
+  int elapsed = transitionTimer.elapsed();
+  qreal textOpacity = qBound(0.0, 1.0 - ((elapsed - textDuration) / fadeDuration), 1.0);
+  qreal imageOpacity = qBound(0.0, (elapsed - textDuration) / fadeDuration, 1.0);
+
+  // Enable Antialiasing
+  p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+
+  // Configure the button
+  const auto &[profile_image, profile_text] = profile_data[personalityProfile];
+  QRect rect(0, 0, width(), height());
+
+  // Draw the profile text with the calculated opacity
+  if (textOpacity > 0.0) {
+    p.setOpacity(textOpacity);
+    p.setFont(InterFont(40, QFont::Bold));
+    p.setPen(Qt::white);
+    p.drawText(rect, Qt::AlignCenter, profile_text);
+  }
+
+  // Draw the profile image with the calculated opacity
+  if (imageOpacity > 0.0) {
+    drawIcon(p, QPoint((btn_size / 2) * 1.25, btn_size / 2), profile_image, Qt::transparent, imageOpacity);
+  }
 }
 
 void AnnotatedCameraWidget::drawStatusBar(QPainter &p) {
