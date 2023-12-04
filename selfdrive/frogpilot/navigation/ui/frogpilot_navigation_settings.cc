@@ -1,7 +1,7 @@
 #include <QMouseEvent>
 
-#include "frogpilot/navigation/ui/frogpilot_navigation_functions.h"
-#include "frogpilot/navigation/ui/frogpilot_navigation_settings.h"
+#include "selfdrive/frogpilot/navigation/ui/frogpilot_navigation_functions.h"
+#include "selfdrive/frogpilot/navigation/ui/frogpilot_navigation_settings.h"
 
 FrogPilotNavigationPanel::FrogPilotNavigationPanel(QWidget *parent) : QFrame(parent), scene(uiState()->scene) {
   mainLayout = new QStackedLayout(this);

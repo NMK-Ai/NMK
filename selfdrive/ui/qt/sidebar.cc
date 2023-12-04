@@ -62,7 +62,7 @@ Sidebar::Sidebar(QWidget *parent) : QFrame(parent), onroad(false), flag_pressed(
 
   for (const auto &[key, themeData] : themeConfiguration) {
     const QString &themeName = themeData.first;
-    const QString base = themeName == "stock" ? "../assets/images" : QString("../../frogpilot/assets/custom_themes/%1/images").arg(themeName);
+    const QString base = themeName == "stock" ? "../assets/images" : QString("../frogpilot/assets/custom_themes/%1/images").arg(themeName);
     std::vector<QString> paths = {base + "/button_home.png", base + "/button_flag.png", base + "/button_settings.png"};
 
     home_imgs[key] = loadPixmap(paths[0], home_btn.size());

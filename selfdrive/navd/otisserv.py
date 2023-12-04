@@ -398,7 +398,7 @@ class OtisServ(BaseHTTPRequestHandler):
     self.wfile.write(bytes(self.get_parsed_template("amap/index.html", {"{{amap_key}}": self.get_amap_key(), "{{amap_key_2}}": self.get_amap_key_2()}), "utf-8"))
 
   def get_parsed_template(self, name, replace = {}):
-    f = open(f'openpilot/frogpilot/navigation/otisserv/tpl/{name}.tpl', mode='r', encoding='utf-8')
+    f = open(f'openpilot/selfdrive/frogpilot/navigation/otisserv/tpl/{name}.tpl', mode='r', encoding='utf-8')
     content = f.read()
     for key in replace:
       content = content.replace(key, str(replace[key]))

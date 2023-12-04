@@ -1,6 +1,6 @@
 #include <filesystem>
 
-#include "frogpilot/ui/frogpilot_settings.h"
+#include "selfdrive/frogpilot/ui/frogpilot_settings.h"
 
 FrogPilotControlsPanel::FrogPilotControlsPanel(QWidget *parent) : FrogPilotPanel(parent) {
   setParams();
@@ -13,20 +13,20 @@ FrogPilotControlsPanel::FrogPilotControlsPanel(QWidget *parent) : FrogPilotPanel
   mainLayout->addWidget(whiteHorizontalLine());
 
   static const std::vector<std::tuple<QString, QString, QString, QString>> toggles = {
-    {"AdjustablePersonalities", "Adjustable Personalities", "Switch personalities using the 'Distance' button on the steering wheel (GM/Lexus/Toyota Only) or via the onroad UI for other makes.\n\n1 bar = Aggressive\n2 bars = Standard\n3 bars = Relaxed", "frogpilot/assets/toggle_icons/icon_distance.png"},
-    {"AlwaysOnLateral", "Always on Lateral / No disengage on Brake Pedal", "Keep openpilot lateral control when using either the brake or gas pedals. openpilot is only disengaged by deactivating the 'Cruise Control' button.", "frogpilot/assets/toggle_icons/icon_always_on_lateral.png"},
-    {"ConditionalExperimental", "Conditional Experimental Mode", "Automatically activate 'Experimental Mode' based on specified conditions.", "frogpilot/assets/toggle_icons/icon_conditional.png"},
-    {"CustomPersonalities", "Custom Driving Personalities", "Customize the driving personality profiles to your liking.", "frogpilot/assets/toggle_icons/icon_custom.png"},
-    {"DeviceShutdown", "Device Shutdown Timer", "Set the timer for when the device turns off after being offroad to reduce energy waste and prevent battery drain.", "frogpilot/assets/toggle_icons/icon_time.png"},
+    {"AdjustablePersonalities", "Adjustable Personalities", "Switch personalities using the 'Distance' button on the steering wheel (GM/Lexus/Toyota Only) or via the onroad UI for other makes.\n\n1 bar = Aggressive\n2 bars = Standard\n3 bars = Relaxed", "../frogpilot/assets/toggle_icons/icon_distance.png"},
+    {"AlwaysOnLateral", "Always on Lateral / No disengage on Brake Pedal", "Keep openpilot lateral control when using either the brake or gas pedals. openpilot is only disengaged by deactivating the 'Cruise Control' button.", "../frogpilot/assets/toggle_icons/icon_always_on_lateral.png"},
+    {"ConditionalExperimental", "Conditional Experimental Mode", "Automatically activate 'Experimental Mode' based on specified conditions.", "../frogpilot/assets/toggle_icons/icon_conditional.png"},
+    {"CustomPersonalities", "Custom Driving Personalities", "Customize the driving personality profiles to your liking.", "../frogpilot/assets/toggle_icons/icon_custom.png"},
+    {"DeviceShutdown", "Device Shutdown Timer", "Set the timer for when the device turns off after being offroad to reduce energy waste and prevent battery drain.", "../frogpilot/assets/toggle_icons/icon_time.png"},
     {"ExperimentalModeViaPress", "Experimental Mode Via Steering Wheel / Screen", "Enable or disable Experimental Mode by double-clicking the 'Lane Departure'/LKAS button on the steering wheel (Toyota/Lexus Only) or double tapping the screen for other makes.\n\nOverrides 'Conditional Experimental Mode'. ", "../assets/img_experimental_white.svg"},
-    {"FireTheBabysitter", "Fire the Babysitter", "Disable some of openpilot's 'Babysitter Protocols'.", "frogpilot/assets/toggle_icons/icon_babysitter.png"},
-    {"LateralTune", "Lateral Tuning", "Change the way openpilot steers.", "frogpilot/assets/toggle_icons/icon_lateral_tune.png"},
-    {"LongitudinalTune", "Longitudinal Tuning", "Change the way openpilot accelerates and brakes.", "frogpilot/assets/toggle_icons/icon_longitudinal_tune.png"},
+    {"FireTheBabysitter", "Fire the Babysitter", "Disable some of openpilot's 'Babysitter Protocols'.", "../frogpilot/assets/toggle_icons/icon_babysitter.png"},
+    {"LateralTune", "Lateral Tuning", "Change the way openpilot steers.", "../frogpilot/assets/toggle_icons/icon_lateral_tune.png"},
+    {"LongitudinalTune", "Longitudinal Tuning", "Change the way openpilot accelerates and brakes.", "../frogpilot/assets/toggle_icons/icon_longitudinal_tune.png"},
     {"Model", "Model Selector (Requires Reboot)", "Select your preferred openpilot model.\n\nFV = Farmville(Default)\nNLP = New Lemon Pie\nBD = Blue Diamond", "../assets/offroad/icon_calibration.png"},
-    {"MTSCEnabled", "Map Turn Speed Control", "When enabled, the car will slow down when it predicts a lateral acceleration greater than 2.0 m/s^2.", "frogpilot/assets/toggle_icons/icon_speed_map.png"},
-    {"NudgelessLaneChange", "Nudgeless Lane Change", "Switch lanes without having to nudge the steering wheel.", "frogpilot/assets/toggle_icons/icon_lane.png"},
-    {"PauseLateralOnSignal", "Pause Lateral On Turn Signal", "Pauses lateral control when a turn signal is active.", "frogpilot/assets/toggle_icons/icon_pause_lane.png"},
-    {"SpeedLimitController", "Speed Limit Controller", "Use Open Street Maps, Navigate On openpilot, and your car's dashboard (Toyota only) to set the vehicle's speed to the current speed limit.", "frogpilot/assets/toggle_icons/icon_speed_limit.png"},
+    {"MTSCEnabled", "Map Turn Speed Control", "When enabled, the car will slow down when it predicts a lateral acceleration greater than 2.0 m/s^2.", "../frogpilot/assets/toggle_icons/icon_speed_map.png"},
+    {"NudgelessLaneChange", "Nudgeless Lane Change", "Switch lanes without having to nudge the steering wheel.", "../frogpilot/assets/toggle_icons/icon_lane.png"},
+    {"PauseLateralOnSignal", "Pause Lateral On Turn Signal", "Pauses lateral control when a turn signal is active.", "../frogpilot/assets/toggle_icons/icon_pause_lane.png"},
+    {"SpeedLimitController", "Speed Limit Controller", "Use Open Street Maps, Navigate On openpilot, and your car's dashboard (Toyota only) to set the vehicle's speed to the current speed limit.", "../frogpilot/assets/toggle_icons/icon_speed_limit.png"},
     {"TurnDesires", "Turn Desires", "Use turn desires when below the minimum lane change speed for more precise turns.", "../assets/navigation/direction_continue_right.png"},
     {"VisionTurnControl", "Vision Turn Speed Control", "Automatically adjusts the vehicle's speed in accordance of the curvature of the road for smoother turning.", "../assets/offroad/icon_vtc.png"}
   };
@@ -163,7 +163,7 @@ FrogPilotVehiclesPanel::FrogPilotVehiclesPanel(QWidget *parent) : FrogPilotPanel
   gmLayout->setContentsMargins(0, 0, 0, 0);
 
   QLabel *gmIconLabel = new QLabel(this);
-  gmIconLabel->setPixmap(QPixmap("frogpilot/assets/toggle_icons/icon_gm.png").scaledToWidth(80, Qt::SmoothTransformation));
+  gmIconLabel->setPixmap(QPixmap("../frogpilot/assets/toggle_icons/icon_gm.png").scaledToWidth(80, Qt::SmoothTransformation));
 
   QLabel *gmTextLabel = new QLabel("GM", this);
 
@@ -192,7 +192,7 @@ FrogPilotVehiclesPanel::FrogPilotVehiclesPanel(QWidget *parent) : FrogPilotPanel
   toyotaLayout->setContentsMargins(0, 0, 0, 0);
 
   QLabel *toyotaIconLabel = new QLabel(this);
-  toyotaIconLabel->setPixmap(QPixmap("frogpilot/assets/toggle_icons/icon_toyota.png").scaledToWidth(80, Qt::SmoothTransformation));
+  toyotaIconLabel->setPixmap(QPixmap("../frogpilot/assets/toggle_icons/icon_toyota.png").scaledToWidth(80, Qt::SmoothTransformation));
 
   QLabel *toyotaTextLabel = new QLabel("Toyota", this);
 
@@ -226,15 +226,15 @@ FrogPilotVisualsPanel::FrogPilotVisualsPanel(QWidget *parent) : FrogPilotPanel(p
   mainLayout->addWidget(whiteHorizontalLine());
 
   static const std::vector<std::tuple<QString, QString, QString, QString>> toggles = {
-    {"CustomTheme", "Custom Theme", "Enable the ability to use custom themes.", "frogpilot/assets/wheel_images/frog.png"},
-    {"CameraView", "Camera View (Cosmetic Only)", "Set your preferred camera view for the onroad UI. This toggle is purely cosmetic and will not affect openpilot's use of the other cameras.", "frogpilot/assets/toggle_icons/icon_camera.png"},
-    {"Compass", "Compass", "Add a compass to the onroad UI that indicates your current driving direction.", "frogpilot/assets/toggle_icons/icon_compass.png"},
-    {"CustomUI", "Custom UI", "Customize the UI to your liking.", "frogpilot/assets/toggle_icons/icon_road.png"},
+    {"CustomTheme", "Custom Theme", "Enable the ability to use custom themes.", "../frogpilot/assets/wheel_images/frog.png"},
+    {"CameraView", "Camera View (Cosmetic Only)", "Set your preferred camera view for the onroad UI. This toggle is purely cosmetic and will not affect openpilot's use of the other cameras.", "../frogpilot/assets/toggle_icons/icon_camera.png"},
+    {"Compass", "Compass", "Add a compass to the onroad UI that indicates your current driving direction.", "../frogpilot/assets/toggle_icons/icon_compass.png"},
+    {"CustomUI", "Custom UI", "Customize the UI to your liking.", "../frogpilot/assets/toggle_icons/icon_road.png"},
     {"DriverCamera", "Driver Camera On Reverse", "Displays the driver camera when in reverse.", "../assets/img_driver_face_static.png"},
-    {"GreenLightAlert", "Green Light Alert", "Displays an alert when a light turns from red to green.", "frogpilot/assets/toggle_icons/icon_green_light.png"},
-    {"RotatingWheel", "Rotating Steering Wheel", "The steering wheel in top right corner of the onroad UI rotates alongside your physical steering wheel.", "frogpilot/assets/toggle_icons/icon_rotate.png"},
-    {"ScreenBrightness", "Screen Brightness", "Choose a custom screen brightness level or use the default 'Auto' brightness setting.", "frogpilot/assets/toggle_icons/icon_light.png"},
-    {"SilentMode", "Silent Mode", "Disables all openpilot sounds for a completely silent experience.", "frogpilot/assets/toggle_icons/icon_mute.png"},
+    {"GreenLightAlert", "Green Light Alert", "Displays an alert when a light turns from red to green.", "../frogpilot/assets/toggle_icons/icon_green_light.png"},
+    {"RotatingWheel", "Rotating Steering Wheel", "The steering wheel in top right corner of the onroad UI rotates alongside your physical steering wheel.", "../frogpilot/assets/toggle_icons/icon_rotate.png"},
+    {"ScreenBrightness", "Screen Brightness", "Choose a custom screen brightness level or use the default 'Auto' brightness setting.", "../frogpilot/assets/toggle_icons/icon_light.png"},
+    {"SilentMode", "Silent Mode", "Disables all openpilot sounds for a completely silent experience.", "../frogpilot/assets/toggle_icons/icon_mute.png"},
     {"WheelIcon", "Steering Wheel Icon", "Replace the stock openpilot steering wheel icon with a custom icon.\n\nWant to submit your own steering wheel? Message me on Discord\n@FrogsGoMoo!", "../assets/offroad/icon_openpilot.png"},
   };
 

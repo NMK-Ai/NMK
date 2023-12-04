@@ -110,9 +110,9 @@ procs = [
   PythonProcess("webjoystick", "tools.bodyteleop.web", notcar),
 
   # FrogPilot processes
-  PythonProcess("fleet_manager", "frogpilot.fleetmanager.fleet_manager", always_run),
-  PythonProcess("mapd", "frogpilot.functions.mapd", osm),
-  PythonProcess("otisserv", "frogpilot.navigation.otisserv.otisserv", always_run),
+  PythonProcess("fleet_manager", "selfdrive.frogpilot.fleetmanager.fleet_manager", always_run),
+  PythonProcess("mapd", "selfdrive.frogpilot.functions.mapd", osm),
+  PythonProcess("otisserv", "selfdrive.frogpilot.navigation.otisserv.otisserv", always_run),
 ]
 
 managed_processes = {p.name: p for p in procs}

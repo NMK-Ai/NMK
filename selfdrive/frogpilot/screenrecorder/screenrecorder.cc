@@ -1,6 +1,6 @@
 #include "libyuv.h"
 
-#include "frogpilot/screenrecorder/screenrecorder.h"
+#include "selfdrive/frogpilot/screenrecorder/screenrecorder.h"
 #include "selfdrive/ui/qt/util.h"
 
 static long long milliseconds() {

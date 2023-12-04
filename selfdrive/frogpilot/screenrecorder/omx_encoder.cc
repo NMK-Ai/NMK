@@ -1,6 +1,6 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
-#include "frogpilot/screenrecorder/omx_encoder.h"
+#include "selfdrive/frogpilot/screenrecorder/omx_encoder.h"
 
 #include <fcntl.h>
 #include <sys/stat.h>

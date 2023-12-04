@@ -29,7 +29,7 @@ Sound::Sound(QObject *parent) : sm({"controlsState", "microphone"}) {
   };
 
   for (const auto &[key, themeName] : themeConfiguration) {
-    QString base = themeName == "stock" ? "../../assets/sounds" : QString("../../assets/custom_themes/%1/sounds").arg(themeName);
+    QString base = themeName == "stock" ? "../../assets/sounds" : QString("../../frogpilot/assets/custom_themes/%1/sounds").arg(themeName);
     soundPaths[key] = base;
   }
 

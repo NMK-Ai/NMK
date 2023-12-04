@@ -18,7 +18,7 @@ from openpilot.selfdrive.navd.helpers import (Coordinate, coordinate_from_param,
                                     parse_banner_instructions)
 from openpilot.system.swaglog import cloudlog
 
-from openpilot.frogpilot.functions.speed_limit_controller import SpeedLimitController
+from openpilot.selfdrive.frogpilot.functions.speed_limit_controller import SpeedLimitController
 
 REROUTE_DISTANCE = 25
 MANEUVER_TRANSITION_THRESHOLD = 10

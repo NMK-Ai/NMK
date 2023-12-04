@@ -23,8 +23,8 @@
 #include "selfdrive/ui/qt/util.h"
 #include "selfdrive/ui/qt/qt_window.h"
 
-#include "frogpilot/ui/frogpilot_settings.h"
-#include "frogpilot/navigation/ui/frogpilot_navigation_settings.h"
+#include "selfdrive/frogpilot/ui/frogpilot_settings.h"
+#include "selfdrive/frogpilot/navigation/ui/frogpilot_navigation_settings.h"
 
 TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
   // param, title, desc, icon

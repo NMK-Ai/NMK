@@ -17,9 +17,9 @@ from openpilot.selfdrive.controls.lib.longitudinal_mpc_lib.long_mpc import T_IDX
 from openpilot.selfdrive.controls.lib.drive_helpers import V_CRUISE_MAX, CONTROL_N, get_speed_error
 from openpilot.system.swaglog import cloudlog
 
-from openpilot.frogpilot.functions.conditional_experimental_mode.py import ConditionalExperimentalMode
-from openpilot.frogpilot.functions.map_turn_speed_control import MapTurnSpeedController
-from openpilot.frogpilot.functions.speed_limit_controller import SpeedLimitController
+from openpilot.selfdrive.frogpilot.functions.conditional_experimental_mode import ConditionalExperimentalMode
+from openpilot.selfdrive.frogpilot.functions.map_turn_speed_controller import MapTurnSpeedController
+from openpilot.selfdrive.frogpilot.functions.speed_limit_controller import SpeedLimitController
 
 LON_MPC_STEP = 0.2  # first step is 0.2s
 A_CRUISE_MIN = -1.2
