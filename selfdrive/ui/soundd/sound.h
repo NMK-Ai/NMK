@@ -45,6 +45,7 @@ protected:
 
   // FrogPilot variables
   bool isCustomTheme;
+  bool isSilentMode;
   int customSounds;
 
   std::unordered_map<int, QString> soundPaths;
