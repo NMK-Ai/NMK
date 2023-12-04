@@ -24,6 +24,7 @@
 #include "selfdrive/ui/qt/qt_window.h"
 
 #include "frogpilot/ui/frogpilot_settings.h"
+#include "frogpilot/navigation/ui/frogpilot_navigation_settings.h"
 
 TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
   // param, title, desc, icon
@@ -386,6 +387,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) : QFrame(parent) {
     {tr("Toggles"), toggles},
     {tr("Software"), new SoftwarePanel(this)},
     {tr("Controls"), new FrogPilotControlsPanel(this)},
+    {tr("Navigation"), new FrogPilotNavigationPanel(this)},
     {tr("Vehicles"), new FrogPilotVehiclesPanel(this)},
     {tr("Visuals"), new FrogPilotVisualsPanel(this)},
   };
