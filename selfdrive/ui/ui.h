@@ -187,6 +187,7 @@ typedef struct UIScene {
   bool map_open;
   bool mute_dm;
   bool personalities_via_screen;
+  bool random_events;
   bool road_name_ui;
   bool rotating_wheel;
   bool show_driver_camera;
@@ -201,6 +202,7 @@ typedef struct UIScene {
   int conditional_speed;
   int conditional_speed_lead;
   int conditional_status;
+  int current_random_event;
   int custom_colors;
   int custom_signals;
   int screen_brightness;

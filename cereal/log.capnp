@@ -2294,7 +2294,7 @@ struct Event {
     frogpilotLateralPlan @110 :Custom.FrogPilotLateralPlan;
     frogpilotLongitudinalPlan @111 :Custom.FrogPilotLongitudinalPlan;
     frogpilotNavigation @112 :Custom.FrogPilotNavigation;
-    customReserved6 @113 :Custom.CustomReserved6;
+    randomEvents @113 :Custom.RandomEvents;
     customReserved7 @114 :Custom.CustomReserved7;
     customReserved8 @115 :Custom.CustomReserved8;
     customReserved9 @116 :Custom.CustomReserved9;

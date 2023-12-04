@@ -315,7 +315,7 @@ void ui_update_params(UIState *s) {
   scene.mute_dm = params.getBool("FireTheBabysitter") && params.getBool("MuteDM");
 
   scene.personalities_via_screen = (params.getInt("AdjustablePersonalities") == 2 || params.getInt("AdjustablePersonalities") == 3);
-
+  scene.random_events = params.getBool("RandomEvents");
   scene.rotating_wheel = params.getBool("RotatingWheel");
   scene.speed_limit_controller = params.getBool("SpeedLimitController");
   scene.wheel_icon = params.getInt("WheelIcon");
@@ -391,6 +391,9 @@ void UIState::update() {
   // FrogPilot live variables that need to be constantly checked
   if (scene.conditional_experimental) {
     scene.conditional_status = paramsMemory.getInt("CEStatus");
+  }
+  if (scene.random_events) {
+    scene.current_random_event = paramsMemory.getInt("CurrentRandomEvent");
   }
 }
 

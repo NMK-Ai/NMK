@@ -81,6 +81,7 @@ private:
   bool engageable;
 
   // FrogPilot variables
+  bool firefoxRandomEventTriggered;
   bool rotatingWheel;
   bool y_offset;
   int steeringAngleDeg;
