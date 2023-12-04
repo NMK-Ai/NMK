@@ -79,7 +79,9 @@ private:
   bool engageable;
 
   // FrogPilot variables
+  bool rotatingWheel;
   bool y_offset;
+  int steeringAngleDeg;
   int wheelIcon;
 
   std::map<int, QPixmap> wheelImages;
