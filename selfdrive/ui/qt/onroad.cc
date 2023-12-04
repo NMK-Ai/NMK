@@ -413,7 +413,16 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   main_layout->addWidget(experimental_btn, 0, Qt::AlignTop | Qt::AlignRight);
 
   map_settings_btn = new MapSettingsButton(this);
-  main_layout->addWidget(map_settings_btn, 0, Qt::AlignBottom | Qt::AlignRight);
+  main_layout->addWidget(map_settings_btn, 0, Qt::AlignTop | Qt::AlignRight);
+
+  bottom_layout = new QHBoxLayout();
+
+  bottom_layout->addStretch();
+
+  compass_img = new Compass(this);
+  bottom_layout->addWidget(compass_img);
+
+  main_layout->addLayout(bottom_layout);
 
   dm_img = loadPixmap("../assets/img_driver_face.png", {img_size + 5, img_size + 5});
 
@@ -1070,6 +1079,7 @@ void AnnotatedCameraWidget::updateFrogPilotWidgets(QPainter &p) {
   blindSpotLeft = scene.blind_spot_left;
   blindSpotRight = scene.blind_spot_right;
   cameraView = scene.camera_view;
+  compass = scene.compass;
   conditionalExperimental = scene.conditional_experimental;
   conditionalSpeed = scene.conditional_speed;
   conditionalSpeedLead = scene.conditional_speed_lead;
@@ -1102,6 +1112,16 @@ void AnnotatedCameraWidget::updateFrogPilotWidgets(QPainter &p) {
     drawTurnSignals(p);
   }
 
+  const bool enableCompass = compass && !hideBottomIcons;
+  compass_img->setVisible(enableCompass);
+  if (enableCompass) {
+    if (bearingDeg != scene.bearing_deg) {
+      bearingDeg = scene.bearing_deg;
+      compass_img->updateState(bearingDeg);
+    }
+    bottom_layout->setAlignment(compass_img, (rightHandDM ? Qt::AlignLeft : Qt::AlignRight));
+  }
+
   // Update the turn signal animation images upon toggle change
   if (customSignals != scene.custom_signals) {
     customSignals = scene.custom_signals;
@@ -1126,6 +1146,110 @@ void AnnotatedCameraWidget::updateFrogPilotWidgets(QPainter &p) {
     }
     signalImgVector.push_back(QPixmap(theme_path + "/turn_signal_1_red.png"));  // Regular blindspot image
     signalImgVector.push_back(QPixmap(theme_path + "/turn_signal_1_red.png").transformed(QTransform().scale(-1, 1)));  // Flipped blindspot image
+  }
+}
+
+Compass::Compass(QWidget *parent) : QWidget(parent) {
+  setFixedSize(375, 325);
+
+  compassSize = 250;
+  circleOffset = compassSize / 2;
+  degreeLabelOffset = circleOffset + 25;
+  innerCompass = btn_size / 2;
+  x = compassSize / 1.5 + 50;
+  y = compassSize / 1.5 - 15;
+
+  compassInnerImg = loadPixmap("../../frogpilot/assets/other_images/compass_inner.png", QSize(compassSize / 1.75, compassSize / 1.75));
+
+  initializeStaticElements();
+}
+
+void Compass::updateState(int bearing_deg) {
+  bearingDeg = bearing_deg;
+  update();
+}
+
+void Compass::initializeStaticElements() {
+  staticElements = QPixmap(size());
+  staticElements.fill(Qt::transparent);
+  QPainter p(&staticElements);
+
+  p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+
+  // Configure the circles
+  QPen whitePen(Qt::white, 2);
+  p.setPen(whitePen);
+
+  // Draw the circle background and white inner circle
+  p.setOpacity(1.0);
+  p.setBrush(QColor(0, 0, 0, 100));
+  p.drawEllipse(x - circleOffset, y - circleOffset, circleOffset * 2, circleOffset * 2);
+
+  // Draw the white circles
+  p.setBrush(Qt::NoBrush);
+  p.drawEllipse(x - (innerCompass + 5), y - (innerCompass + 5), (innerCompass + 5) * 2, (innerCompass + 5) * 2);
+  p.drawEllipse(x - degreeLabelOffset, y - degreeLabelOffset, degreeLabelOffset * 2, degreeLabelOffset * 2);
+
+  // Draw the black background for the bearing degrees
+  QPainterPath outerCircle, innerCircle;
+  outerCircle.addEllipse(x - degreeLabelOffset, y - degreeLabelOffset, degreeLabelOffset * 2, degreeLabelOffset * 2);
+  innerCircle.addEllipse(x - circleOffset, y - circleOffset, compassSize, compassSize);
+  p.fillPath(outerCircle.subtracted(innerCircle), Qt::black);
+
+  // Draw the static degree lines
+  for (int i = 0; i < 360; i += 15) {
+    const bool isCardinalDirection = i % 90 == 0;
+    const int lineLength = isCardinalDirection ? 15 : 10;
+    p.setPen(QPen(Qt::white, isCardinalDirection ? 3 : 1));
+    p.save();
+    p.translate(x, y);
+    p.rotate(i);
+    p.drawLine(0, -(compassSize / 2 - lineLength), 0, -(compassSize / 2));
+    p.restore();
+  }
+}
+
+void Compass::paintEvent(QPaintEvent *event) {
+  QPainter p(this);
+  p.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+
+  // Draw static elements
+  p.drawPixmap(0, 0, staticElements);
+
+  // Rotate and draw the compassInnerImg image
+  p.translate(x, y);
+  p.rotate(bearingDeg);
+  p.drawPixmap(-compassInnerImg.width() / 2, -compassInnerImg.height() / 2, compassInnerImg);
+  p.rotate(-bearingDeg);
+  p.translate(-x, -y);
+
+  // Draw the dynamic bearing degree numbers and lines
+  QFont font = InterFont(10, QFont::Normal);
+  for (int i = 0; i < 360; i += 15) {
+    const bool isBold = abs(i - static_cast<int>(bearingDeg)) <= 7;
+    font.setWeight(isBold ? QFont::Bold : QFont::Normal);
+    p.setFont(font);
+    p.setPen(QPen(Qt::white, i % 90 == 0 ? 2 : 1));
+
+    p.save();
+    p.translate(x, y);
+    p.rotate(i);
+    p.drawLine(0, -(compassSize / 2 - (i % 90 == 0 ? 12 : 8)), 0, -(compassSize / 2));
+    p.translate(0, -(compassSize / 2 + 12));
+    p.rotate(-i);
+    p.drawText(QRect(-20, -10, 40, 20), Qt::AlignCenter, QString::number(i));
+    p.restore();
+  }
+
+  // Draw cardinal directions
+  p.setFont(InterFont(25, QFont::Bold));
+  const QString directions[] = {"N", "E", "S", "W"};
+  const int angles[] = {0, 90, 180, 270};
+  const int alignmentFlags[] = {Qt::AlignTop | Qt::AlignHCenter, Qt::AlignRight | Qt::AlignVCenter, Qt::AlignBottom | Qt::AlignHCenter, Qt::AlignLeft | Qt::AlignVCenter};
+  for (int i = 0; i < 4; ++i) {
+    const int offset = (directions[i] == "E") ? -5 : (directions[i] == "W" ? 5 : 0);
+    p.setOpacity((bearingDeg >= angles[i] - 22 && bearingDeg < angles[i] + 23) ? 1.0 : 0.2);
+    p.drawText(QRect(x - innerCompass + offset, y - innerCompass, innerCompass * 2, innerCompass * 2), alignmentFlags[i], directions[i]);
   }
 }
 
