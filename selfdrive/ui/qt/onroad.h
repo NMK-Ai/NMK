@@ -198,6 +198,7 @@ private:
   float slcSpeedLimitOffset;
   float stoppedEquivalence;
   float stoppedEquivalenceStock;
+  float vtscOffset;
   int bearingDeg;
   int cameraView;
   int conditionalSpeed;
