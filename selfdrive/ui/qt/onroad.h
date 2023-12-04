@@ -112,8 +112,12 @@ private:
 
   // FrogPilot variables
   bool alwaysOnLateral;
+  bool conditionalExperimental;
   bool experimentalMode;
   int cameraView;
+  int conditionalSpeed;
+  int conditionalSpeedLead;
+  int conditionalStatus;
 
   Params params;
   Params paramsMemory{"/dev/shm/params"};
