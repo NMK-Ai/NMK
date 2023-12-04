@@ -115,6 +115,7 @@ private:
   // FrogPilot widgets
   void drawLeadInfo(QPainter &p);
   void drawStatusBar(QPainter &p);
+  void drawTurnSignals(QPainter &p);
   void initializeFrogPilotWidgets();
   void updateFrogPilotWidgets(QPainter &p);
 
@@ -127,6 +128,8 @@ private:
   bool conditionalExperimental;
   bool experimentalMode;
   bool leadInfo;
+  bool turnSignalLeft;
+  bool turnSignalRight;
   double maxAcceleration;
   float desiredFollow;
   float laneWidthLeft;
@@ -139,6 +142,13 @@ private:
   int conditionalSpeed;
   int conditionalSpeedLead;
   int conditionalStatus;
+  int customColors;
+  int customSignals;
+  int totalFrames;
+  size_t animationFrameIndex;
+
+  std::unordered_map<int, std::pair<QString, std::pair<QColor, std::map<double, QBrush>>>> themeConfiguration;
+  std::vector<QPixmap> signalImgVector;
 
   Params params;
   Params paramsMemory{"/dev/shm/params"};
