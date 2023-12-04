@@ -309,6 +309,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"Sidebar", PERSISTENT},
     {"SilentMode", PERSISTENT},
     {"SmoothBraking", PERSISTENT},
+    {"SNGHack", PERSISTENT},
     {"StandardFollow", PERSISTENT},
     {"StandardJerk", PERSISTENT},
     {"StoppingDistance", PERSISTENT},
