@@ -113,6 +113,7 @@ private:
   // FrogPilot variables
   bool alwaysOnLateral;
   bool experimentalMode;
+  int cameraView;
 
   Params params;
   Params paramsMemory{"/dev/shm/params"};
