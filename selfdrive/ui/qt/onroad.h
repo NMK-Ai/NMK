@@ -111,6 +111,7 @@ private:
   void updateFrogPilotWidgets(QPainter &p);
 
   // FrogPilot variables
+  bool alwaysOnLateral;
   bool experimentalMode;
 
   Params params;
