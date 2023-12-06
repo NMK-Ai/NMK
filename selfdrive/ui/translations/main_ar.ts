@@ -71,7 +71,7 @@
     <name>AnnotatedCameraWidget</name>
     <message>
         <source>km/h</source>
-        <translation>كم/س</translation>
+        <translation>كلم/س</translation>
     </message>
     <message>
         <source>mph</source>
@@ -79,15 +79,15 @@
     </message>
     <message>
         <source>MAX</source>
-        <translation>MAX</translation>
+        <translation>أقصى</translation>
     </message>
     <message>
         <source>SPEED</source>
-        <translation>SPEED</translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>LIMIT</source>
-        <translation>LIMIT</translation>
+        <translation>الحد</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,7 @@
     <name>DeclinePage</name>
     <message>
         <source>You must accept the Terms and Conditions in order to use openpilot.</source>
-        <translation>يجب عليك قبول الشروط والأحكام من أجل استخدام openpilot.</translation>
+        <translation>يجب عليك قبول الشروط والأحكام من أجل استخدام القائد الآلي.</translation>
     </message>
     <message>
         <source>Back</source>
@@ -147,7 +147,7 @@
     <name>DevicePanel</name>
     <message>
         <source>Dongle ID</source>
-        <translation>معرف دونجل</translation>
+        <translation>معرف الدونجل</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -227,7 +227,7 @@
     </message>
     <message>
         <source>openpilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. openpilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>يحتاج openpilot أن يتم ضبط الجهاز ضمن حدود 4 درجات يميناً أو يساراً و5 درجات نحو الأعلى أو 9 نحو الأسفل. يقوم openpilot بالمعايرة باستمرار، ونادراً ما يحتاج إلى عملية إعادة الضبط.</translation>
+        <translation>يحتاج القائد الآلي أن يتم ضبط الجهاز ضمن حدود 4 درجات يميناً أو يساراً و5 درجات نحو الأعلى أو 9 نحو الأسفل. يقوم القائد الآلي بالمعايرة باستمرار، ونادراً ما يحتاج إلى عملية إعادة الضبط.</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -396,11 +396,11 @@
     </message>
     <message>
         <source>Immediately connect to the internet to check for updates. If you do not connect to the internet, openpilot won&apos;t engage in %1</source>
-        <translation>اتصل فوراً بالإنترنت للتحقق من وجود تحديثات. إذا لم تكم متصلاً بالإنترنت فإن openpilot لن يساهم في %1</translation>
+        <translation>اتصل فوراً بالإنترنت للتحقق من وجود تحديثات. إذا لم تكم متصلاً بالإنترنت فإن القائد الآلي لن يساهم في %1</translation>
     </message>
     <message>
         <source>Connect to internet to check for updates. openpilot won&apos;t automatically start until it connects to internet to check for updates.</source>
-        <translation>اتصل بالإنترنت للتحقق من وجود تحديثات. لا يعمل openpilot تلقائياً إلا إذا اتصل بالإنترنت من أجل التحقق من التحديثات.</translation>
+        <translation>اتصل بالإنترنت للتحقق من وجود تحديثات. لا يعمل القائد الآلي تلقائياً إلا إذا اتصل بالإنترنت من أجل التحقق من التحديثات.</translation>
     </message>
     <message>
         <source>Unable to download updates
@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>Device failed to register. It will not connect to or upload to comma.ai servers, and receives no support from comma.ai. If this is an official device, visit https://comma.ai/support.</source>
-        <translation>فشل تسجيل الجهاز. لن يقوم بالاتصال أو تحميل خوادم comma.ai، ولا تلقي الدعم من comma.ai. إذا كان هذا الجهاز نظامياً فيرجى زيارة الموقع https://comma.ai/support.</translation>
+        <translation>فشل تسجيل الجهاز. لن يقوم بالاتصال أو تحميل خوادم nmk.sa، ولا تلقي الدعم من nmk.sa. إذا كان هذا الجهاز نظامياً فيرجى زيارة الموقع https://nmk.sa/support.</translation>
     </message>
     <message>
         <source>NVMe drive not mounted.</source>
@@ -434,15 +434,15 @@
     </message>
     <message>
         <source>openpilot was unable to identify your car. Your car is either unsupported or its ECUs are not recognized. Please submit a pull request to add the firmware versions to the proper vehicle. Need help? Join discord.comma.ai.</source>
-        <translation>لم يكن openpilot قادراً على تحديد سيارتك. إما أن تكون سيارتك غير مدعومة أو أنه لم يتم التعرف على وحدة التحكم الإلكتروني (ECUs) فيها. يرجى تقديم طلب سحب من أجل إضافة نسخ برمجيات ثابتة إلى السيارة المناسبة. هل تحتاج إلى أي مساعدة؟ لا تتردد في التواصل مع doscord.comma.ai.</translation>
+        <translation>لم يكن القائد الآلي قادراً على تحديد سيارتك. إما أن تكون سيارتك غير مدعومة أو أنه لم يتم التعرف على وحدة التحكم الإلكتروني (ECUs) فيها. يرجى تقديم طلب سحب من أجل إضافة نسخ برمجيات ثابتة إلى السيارة المناسبة. هل تحتاج إلى أي مساعدة؟ لا تتردد في التواصل مع nmk.sa.</translation>
     </message>
     <message>
         <source>openpilot was unable to identify your car. Check integrity of cables and ensure all connections are secure, particularly that the comma power is fully inserted in the OBD-II port of the vehicle. Need help? Join discord.comma.ai.</source>
-        <translation>لم يتمكن openpilot من تحديد سيارتك. تحقق من سلامة الكابلات وتأكد من تأمين جميع الوصلات، لا سيما أنه قد تم إدخال طاقة الفاصلة بالكامل في منفذ OBD-II في السيارة. هل تريد أي مساعدة؟ لا تتردد في الانضمام إلى discord.comma.ai.</translation>
+        <translation>لم يتمكن openpilot من تحديد سيارتك. تحقق من سلامة الكابلات وتأكد من تأمين جميع الوصلات، لا سيما أنه قد تم إدخال طاقة الفاصلة بالكامل في منفذ OBD-II في السيارة. هل تريد أي مساعدة؟ لا تتردد في الانضمام إلى nmk.sa.</translation>
     </message>
     <message>
         <source>openpilot detected a change in the device&apos;s mounting position. Ensure the device is fully seated in the mount and the mount is firmly secured to the windshield.</source>
-        <translation>لقد اكتشف openpilot تغييراً في موقع تركيب الجهاز. تأكد من تثبيت الجهاز بشكل كامل في موقعه وتثبيته بإحكام على الزجاج الأمامي.</translation>
+        <translation>لقد اكتشف القائد الآلي تغييراً في موقع تركيب الجهاز. تأكد من تثبيت الجهاز بشكل كامل في موقعه وتثبيته بإحكام على الزجاج الأمامي.</translation>
     </message>
 </context>
 <context>
@@ -464,11 +464,11 @@
     <name>PairingPopup</name>
     <message>
         <source>Pair your device to your comma account</source>
-        <translation>اقرن جهازك مع حسابك على comma</translation>
+        <translation>اقرن جهازك مع حسابك على nmk</translation>
     </message>
     <message>
         <source>Go to https://connect.comma.ai on your phone</source>
-        <translation>انتقل إلى https://connect.comma.ai على جوالك</translation>
+        <translation>انتقل إلى https://connect.nmk.sa على جوالك</translation>
     </message>
     <message>
         <source>Click &quot;add new device&quot; and scan the QR code on the right</source>
@@ -476,7 +476,7 @@
     </message>
     <message>
         <source>Bookmark connect.comma.ai to your home screen to use it like an app</source>
-        <translation>اجعل لـconnect.comma.ai إشارة مرجعية على شاشتك  الرئيسية من أجل استخدامه مثل أي تطبيق</translation>
+        <translation>اجعل لـconnect.nmk.sa إشارة مرجعية على شاشتك  الرئيسية من أجل استخدامه مثل أي تطبيق</translation>
     </message>
 </context>
 <context>
@@ -498,7 +498,7 @@
     </message>
     <message>
         <source>Become a comma prime member at connect.comma.ai</source>
-        <translation>كن عضوًا في comma prime على connect.comma.ai</translation>
+        <translation>كن عضوًا في comma prime على connect.nmk.sa</translation>
     </message>
     <message>
         <source>PRIME FEATURES:</source>
@@ -529,7 +529,7 @@
     </message>
     <message>
         <source>comma prime</source>
-        <translation>comma prime</translation>
+        <translation>NMK prime</translation>
     </message>
 </context>
 <context>
@@ -544,11 +544,11 @@
     </message>
     <message>
         <source>dashcam</source>
-        <translation>dashcam</translation>
+        <translation>الداش كام</translation>
     </message>
     <message>
         <source>openpilot</source>
-        <translation>openpilot</translation>
+        <translation>القائد الآلي</translation>
     </message>
     <message numerus="yes">
         <source>%n minute(s) ago</source>
@@ -585,7 +585,7 @@
     </message>
     <message>
         <source>km</source>
-        <translation>كم</translation>
+        <translation>كلم</translation>
     </message>
     <message>
         <source>m</source>
@@ -755,7 +755,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Pair your device with comma connect (connect.comma.ai) and claim your comma prime offer.</source>
-        <translation>اقرن جهازك بجهاز (connect.comma.ai) واحصل على عرضك من comma prime.</translation>
+        <translation>اقرن جهازك بجهاز (connect.nmk.sa) واحصل على عرضك من nmk prime.</translation>
     </message>
     <message>
         <source>Pair device</source>
@@ -806,7 +806,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>PANDA</source>
-        <translation>PANDA</translation>
+        <translation>الباندا</translation>
     </message>
     <message>
         <source>GPS</source>
@@ -928,7 +928,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Warning: This grants SSH access to all public keys in your GitHub settings. Never enter a GitHub username other than your own. A comma employee will NEVER ask you to add their GitHub username.</source>
-        <translation>تنبيه: هذا يمنح SSH إمكانية الوصول إلى جميع المفاتيح العامة في إعدادات GitHub. لا تقم بإدخال اسم مستخدم GitHub بدلاً من اسمك. لن تطلب منك comma employee إطلاقاً أن تضيف اسم مستخدم GitHub الخاص بهم.</translation>
+        <translation>تنبيه: هذا يمنح SSH إمكانية الوصول إلى جميع المفاتيح العامة في إعدادات GitHub. لا تقم بإدخال اسم مستخدم GitHub بدلاً من اسمك. لن تطلب منك  nmk موظفي إطلاقاً أن تضيف اسم مستخدم GitHub الخاص بهم.</translation>
     </message>
     <message>
         <source>ADD</source>
@@ -993,7 +993,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>استخدم نظام openpilot من أجل الضبط التكيفي للسرعة والحفاظ على مساعدة السائق للبقاء في المسار. انتباهك مطلوب في جميع الأوقات مع استخدام هذه الميزة. يعمل هذا التغيير في الإعدادات عند إيقاف تشغيل السيارة.</translation>
+        <translation>استخدم نظام القائد الآلي من أجل الضبط التكيفي للسرعة والحفاظ على مساعدة السائق للبقاء في المسار. انتباهك مطلوب في جميع الأوقات مع استخدام هذه الميزة. يعمل هذا التغيير في الإعدادات عند إيقاف تشغيل السيارة.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1045,11 +1045,11 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>openpilot Longitudinal Control (Alpha)</source>
-        <translation>التحكم الطولي openpilot (ألفا)</translation>
+        <translation>التحكم الطولي القائد الآلي (ألفا)</translation>
     </message>
     <message>
         <source>WARNING: openpilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
-        <translation>تحذير: التحكم الطولي في openpilot في المرحلة ألفا لهذه السيارة، وسيقوم بتعطيل مكابح الطوارئ الآلية (AEB).</translation>
+        <translation>تحذير: التحكم الطولي في القائد الآلي في المرحلة ألفا لهذه السيارة، وسيقوم بتعطيل مكابح الطوارئ الآلية (AEB).</translation>
     </message>
     <message>
         <source>On this car, openpilot defaults to the car&apos;s built-in ACC instead of openpilot&apos;s longitudinal control. Enable this to switch to openpilot longitudinal control. Enabling Experimental mode is recommended when enabling openpilot longitudinal control alpha.</source>
@@ -1077,11 +1077,11 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode openpilot will stay further away from lead cars.</source>
-        <translation>يوصى بالوضع القياسي. في الوضع الهجومي، سيتبع openpilot السيارات الرائدة بشكل أقرب، ويصبح أكثر هجومية في دواسات الوقود والمكابح. في وضعية الراحة يبقى openplot بعيداً لمسافة جيدة عن السيارة الرائدة.</translation>
+        <translation>يوصى بالوضع القياسي. في الوضع الهجومي، سيتبع القائد الآلي السيارات الرائدة بشكل أقرب، ويصبح أكثر هجومية في دواسات الوقود والمكابح. في وضعية الراحة يبقى القائد الآلي بعيداً لمسافة جيدة عن السيارة الرائدة.</translation>
     </message>
     <message>
         <source>openpilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
-        <translation>يتم وضع openpilot بشكل قياسي في &lt;b&gt;وضعية الراحة&lt;/b&gt;. يمكن الوضع التجريبي &lt;b&gt;ميزات المستوى ألفا&lt;/b&gt; التي لا تكون جاهزة في وضع الراحة:</translation>
+        <translation>يتم وضع القائد الآلي بشكل قياسي في &lt;b&gt;وضعية الراحة&lt;/b&gt;. يمكن الوضع التجريبي &lt;b&gt;ميزات المستوى ألفا&lt;/b&gt; التي لا تكون جاهزة في وضع الراحة:</translation>
     </message>
     <message>
         <source>End-to-End Longitudinal Control</source>
@@ -1089,15 +1089,15 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
-        <translation>دع نظام القيادة يتحكم بالوقود والمكابح. سيقوم openpilot بالقيادة كما لو أنه كائن بشري، بما في ذلك التوقف عند الإشارة الحمراء، وإشارات التوقف. وبما أن نمط القيادة يحدد سرعة القيادة، فإن السرعة المضبوطة تشكل الحد الأقصى فقط. هذه خاصية الجودة ألفا، فيجب توقع حدوث الأخطاء.</translation>
+        <translation>دع نظام القيادة يتحكم بالوقود والمكابح. سيقوم القائد الآلي بالقيادة كما لو أنه كائن بشري، بما في ذلك التوقف عند الإشارة الحمراء، وإشارات التوقف. وبما أن نمط القيادة يحدد سرعة القيادة، فإن السرعة المضبوطة تشكل الحد الأقصى فقط. هذه خاصية الجودة ألفا، فيجب توقع حدوث الأخطاء.</translation>
     </message>
     <message>
         <source>Navigate on openpilot</source>
-        <translation>التنقل على openpilot</translation>
+        <translation>التنقل على القائد الآلي</translation>
     </message>
     <message>
         <source>When navigation has a destination, openpilot will input the map information into the model. This provides useful context for the model and allows openpilot to keep left or right appropriately at forks/exits. Lane change behavior is unchanged and still activated by the driver. This is an alpha quality feature; mistakes should be expected, particularly around exits and forks. These mistakes can include unintended laneline crossings, late exit taking, driving towards dividing barriers in the gore areas, etc.</source>
-        <translation>عندما يكون هناك وجهة للتنقل، فإن openpilot سيقوم بإدخال معلومات الخريطة في هذا النموذج. وهذا يقدم سياقاً مفيداً ويسمح لـopenpilot بالبقاء يساراً أو يميناً بالشكل المناسب عند المنعطفات/المخارج. يبقى سلوك تغيير المسار مفعلاً عند السائق،. هذه هي خاصية الجودة ألفا، ولذلك يجب توقع الأخطاء لا سيما عند المخارج والمنعطفات هذه الأخطاء قد تشمل العبور غير المقصود لخطوط المسارات، والتأخر في الخروج، والقيادة نحو الحواجز الفاصلة في المناطق المثلثة بين الطريق الرئيسي والمخارج، وغير ذلك من الأخطاء المشابهة.</translation>
+        <translation>عندما يكون هناك وجهة للتنقل، فإن القائد الآلي سيقوم بإدخال معلومات الخريطة في هذا النموذج. وهذا يقدم سياقاً مفيداً ويسمح القائد الآلي بالبقاء يساراً أو يميناً بالشكل المناسب عند المنعطفات/المخارج. يبقى سلوك تغيير المسار مفعلاً عند السائق،. هذه هي خاصية الجودة ألفا، ولذلك يجب توقع الأخطاء لا سيما عند المخارج والمنعطفات هذه الأخطاء قد تشمل العبور غير المقصود لخطوط المسارات، والتأخر في الخروج، والقيادة نحو الحواجز الفاصلة في المناطق المثلثة بين الطريق الرئيسي والمخارج، وغير ذلك من الأخطاء المشابهة.</translation>
     </message>
     <message>
         <source>New Driving Visualization</source>
@@ -1113,15 +1113,15 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>openpilot longitudinal control may come in a future update.</source>
-        <translation>قد يتم الحصول على التحكم الطولي في openpilot في عمليات التحديث المستقبلية.</translation>
+        <translation>قد يتم الحصول على التحكم الطولي في القائد الآلي في عمليات التحديث المستقبلية.</translation>
     </message>
     <message>
         <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
-        <translation>يمكن اختبار نسخة ألفا من التحكم الطولي من openpilot، مع الوضع التجريبي، لكن على الفروع غير المطلقة.</translation>
+        <translation>يمكن اختبار نسخة ألفا من التحكم الطولي من القائد الآلي مع الوضع التجريبي، لكن على الفروع غير المطلقة.</translation>
     </message>
     <message>
         <source>Enable the openpilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
-        <translation>تمكين التحكم الطولي من openpilot (ألفا) للسماح بالوضع التجريبي.</translation>
+        <translation>تمكين التحكم الطولي من القائد الآلي (ألفا) للسماح بالوضع التجريبي.</translation>
     </message>
 </context>
 <context>
@@ -1167,7 +1167,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Connect to Wi-Fi to upload driving data and help improve openpilot</source>
-        <translation>الاتصال بشبكة الواي فاي لتحميل بيانات القيادة والمساهمة في تحسين openpilot</translation>
+        <translation>الاتصال بشبكة الواي فاي لتحميل بيانات القيادة والمساهمة في تحسين القائد الآلي</translation>
     </message>
     <message>
         <source>Open Settings</source>
